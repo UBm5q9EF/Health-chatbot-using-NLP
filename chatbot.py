@@ -1,18 +1,20 @@
 import json
 from flask import Flask, request, jsonify, render_template
 from fuzzywuzzy import fuzz, process
-
 import re
 
+# ------------------ Setup ------------------
 app = Flask(__name__, template_folder="templates", static_folder="static")
 
-# Load diseases database
+# Load diseases from JSON
 with open("diseases.json", "r", encoding="utf-8") as f:
     data = json.load(f)
 DISEASES = data.get("diseases", [])
 
+# Extract known symptoms
 COMMON_SYMPTOMS = list({sym.lower() for d in DISEASES for sym in d.get("symptoms", [])})
 
+# Synonyms mapping
 SYMPTOM_SYNONYMS = {
     "body ache": "muscle pain",
     "body aches": "muscle pain",
@@ -32,6 +34,7 @@ SYMPTOM_SYNONYMS = {
     "vomiting": "nausea"
 }
 
+# ------------------ Helpers ------------------
 def normalize(s: str) -> str:
     return s.lower().strip()
 
@@ -95,6 +98,7 @@ def remedies_for_disease(disease_name: str):
             }
     return {"message": "⚠️ Disease not found. Try again with a valid name."}
 
+# ------------------ Routes ------------------
 @app.route("/")
 def home():
     return render_template("index.html")
@@ -115,6 +119,6 @@ def api_diagnose():
 
     return jsonify(result)
 
-# ✅ For Render, use app.run instead of waitress
+# ------------------ Run App ------------------
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
