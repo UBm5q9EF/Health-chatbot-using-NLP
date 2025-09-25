@@ -1,0 +1,54 @@
+# ----------------------------
+# 🧠 Prediction Mode (Free-text natural sentences)
+# ----------------------------
+
+I have a fever and cough with body aches.  
+I feel very tired, have chills, and a sore throat.  
+My stomach hurts with nausea and vomiting.  
+I am dizzy, sweating a lot, and feeling weak.  
+I can’t breathe properly and have chest tightness.  
+I have a skin rash, joint pain, and high fever.  
+I feel lightheaded with palpitations and chest pain.  
+I am having diarrhea, abdominal cramps, and dehydration.  
+My head hurts badly with sensitivity to light and neck stiffness.  
+I feel anxious, restless, and my heart is racing.  
+I can’t sleep properly and feel low all the time.  
+I have a burning sensation while urinating with fever.  
+I am coughing blood and losing weight quickly.  
+I have frequent urination, extreme thirst, and blurred vision.  
+My throat is itchy, I keep sneezing, and my eyes are watery.  
+I feel short of breath, wheezing, and coughing at night.  
+I feel pressure in my head with nausea and vomiting.  
+I have high blood pressure, frequent headaches, and dizziness.  
+I have pain in my back, stiffness, and disturbed sleep.  
+I feel numbness and tingling in my feet with fatigue.  
+I have sharp abdominal pain with loss of appetite.  
+I have swollen glands, fever, and sore throat.  
+I have yellow eyes, dark urine, and stomach pain.  
+I feel weak with paleness, dizziness, and fatigue.  
+I have tooth pain, fever, and facial swelling.  
+I feel restless, sweaty, and shaky with fast heartbeat.  
+I have itchy skin, redness, and small bumps.  
+I have ear pain, fever, and difficulty hearing.  
+I feel pain while swallowing with sore throat and fever.  
+I have muscle pain, chills, and night sweats.  
+
+# ----------------------------
+# 🌿 Remedies Mode (Disease name examples)
+# ----------------------------
+
+flu  
+dengue  
+malaria  
+diabetes  
+hypertension  
+asthma  
+migraine  
+anxiety disorder  
+depression  
+pneumonia  
+typhoid  
+jaundice  
+urinary tract infection  
+tuberculosis  
+bronchitis  

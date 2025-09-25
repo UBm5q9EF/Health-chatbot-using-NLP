@@ -1,0 +1,427 @@
+{
+  "diseases": [
+    {
+      "name": "Flu",
+      "type": "Viral infection",
+      "symptoms": ["fever", "cough", "chills", "fatigue", "sore throat"],
+      "causes": "Influenza virus",
+      "treatment": "Rest, fluids, antiviral medication if prescribed",
+      "prevention": "Vaccination, hand hygiene, avoiding sick people",
+      "remedies": ["Drink warm fluids", "Gargle with salt water", "Use a humidifier", "Get plenty of rest"]
+    },
+    {
+      "name": "Dengue",
+      "type": "Viral infection",
+      "symptoms": ["high fever", "rash", "severe headache", "joint pain", "nausea"],
+      "causes": "Dengue virus via mosquito bites",
+      "treatment": "Supportive care, hydration, pain relief",
+      "prevention": "Mosquito control, avoid stagnant water",
+      "remedies": ["Papaya leaf juice to improve platelet count", "Stay hydrated with coconut water", "Use cold compress for fever", "Rest well"]
+    },
+    {
+      "name": "Diabetes",
+      "type": "Metabolic disorder",
+      "symptoms": ["fatigue", "frequent urination", "increased thirst", "blurred vision", "weight loss"],
+      "causes": "Insulin resistance or lack of insulin",
+      "treatment": "Insulin therapy, medication, lifestyle changes",
+      "prevention": "Healthy diet, exercise, weight management",
+      "remedies": ["Cinnamon tea", "Bitter gourd juice", "Eat fiber-rich foods", "Exercise regularly"]
+    },
+    {
+      "name": "Hypertension",
+      "type": "Chronic condition",
+      "symptoms": ["headache", "dizziness", "chest pain", "shortness of breath", "blurred vision"],
+      "causes": "Stress, obesity, genetics, unhealthy lifestyle",
+      "treatment": "Medication, reduced salt intake, stress management",
+      "prevention": "Regular exercise, low-salt diet, avoid smoking",
+      "remedies": ["Garlic in diet", "Limit salt", "Practice meditation", "Eat potassium-rich foods"]
+    },
+    {
+      "name": "Malaria",
+      "type": "Parasitic infection",
+      "symptoms": ["fever", "chills", "sweating", "headache", "muscle pain"],
+      "causes": "Plasmodium parasite via mosquito bites",
+      "treatment": "Antimalarial drugs",
+      "prevention": "Mosquito nets, repellents, prophylactic medication",
+      "remedies": ["Neem tea", "Ginger water", "Tulsi leaves with honey", "Stay hydrated"]
+    },
+    {
+      "name": "COVID-19",
+      "type": "Viral infection",
+      "symptoms": ["fever", "dry cough", "loss of smell", "shortness of breath", "fatigue"],
+      "causes": "SARS-CoV-2 virus",
+      "treatment": "Isolation, supportive care, antivirals if prescribed",
+      "prevention": "Vaccination, mask-wearing, social distancing",
+      "remedies": ["Steam inhalation", "Warm salt water gargle", "Vitamin C-rich diet", "Stay hydrated"]
+    },
+    {
+      "name": "Tuberculosis",
+      "type": "Bacterial infection",
+      "symptoms": ["chronic cough", "night sweats", "weight loss", "fever", "fatigue"],
+      "causes": "Mycobacterium tuberculosis",
+      "treatment": "Long-term antibiotics (6–9 months)",
+      "prevention": "BCG vaccination, avoid exposure to infected individuals",
+      "remedies": ["Garlic in meals", "Turmeric milk", "Ginger tea", "Good ventilation at home"]
+    },
+    {
+      "name": "Typhoid",
+      "type": "Bacterial infection",
+      "symptoms": ["fever", "abdominal pain", "constipation", "diarrhea", "loss of appetite"],
+      "causes": "Salmonella typhi bacteria",
+      "treatment": "Antibiotics, fluids",
+      "prevention": "Vaccination, safe food and water practices",
+      "remedies": ["Banana with honey", "ORS solution", "Buttermilk", "Light, easily digestible foods"]
+    },
+    {
+      "name": "Asthma",
+      "type": "Respiratory condition",
+      "symptoms": ["wheezing", "shortness of breath", "coughing", "chest tightness"],
+      "causes": "Allergies, pollution, genetics",
+      "treatment": "Inhalers, medication, avoiding triggers",
+      "prevention": "Avoid allergens, use preventive inhalers, monitor lung function",
+      "remedies": ["Ginger tea", "Steam inhalation with eucalyptus oil", "Turmeric milk", "Breathing exercises"]
+    },
+    {
+      "name": "Pneumonia",
+      "type": "Infectious disease",
+      "symptoms": ["fever", "cough with phlegm", "chest pain", "difficulty breathing", "fatigue"],
+      "causes": "Bacterial or viral infection",
+      "treatment": "Antibiotics, antivirals, rest, fluids",
+      "prevention": "Vaccination, hand hygiene, avoid smoking",
+      "remedies": ["Drink warm fluids", "Use a humidifier", "Ginger honey tea", "Plenty of rest"]
+    },
+    {
+      "name": "Bronchitis",
+      "type": "Respiratory infection",
+      "symptoms": ["cough with mucus", "wheezing", "chest discomfort", "fatigue", "shortness of breath"],
+      "causes": "Viral or bacterial infection, smoking",
+      "treatment": "Rest, fluids, cough medicine, bronchodilators if needed",
+      "prevention": "Avoid smoking, good hygiene, use masks in polluted areas",
+      "remedies": ["Honey in warm water", "Ginger tea", "Steam inhalation", "Rest in a warm room"]
+    },
+    {
+      "name": "Hepatitis A",
+      "type": "Viral infection",
+      "symptoms": ["fever", "loss of appetite", "abdominal pain", "jaundice", "nausea"],
+      "causes": "Hepatitis A virus via contaminated food/water",
+      "treatment": "Supportive care, hydration",
+      "prevention": "Vaccination, hygiene, clean water",
+      "remedies": ["Turmeric milk", "Avoid oily food", "Coconut water", "Eat light meals"]
+    },
+    {
+      "name": "Hepatitis B",
+      "type": "Viral infection",
+      "symptoms": ["fatigue", "abdominal pain", "jaundice", "dark urine", "joint pain"],
+      "causes": "Hepatitis B virus",
+      "treatment": "Antivirals, liver monitoring",
+      "prevention": "Vaccination, safe sex, avoid sharing needles",
+      "remedies": ["Aloe vera juice", "Leafy greens", "Avoid alcohol", "Turmeric milk"]
+    },
+    {
+      "name": "Migraine",
+      "type": "Neurological condition",
+      "symptoms": ["headache", "nausea", "light sensitivity", "sound sensitivity", "visual disturbance"],
+      "causes": "Stress, hormonal changes, genetics",
+      "treatment": "Pain relief medication, rest in dark room",
+      "prevention": "Avoid triggers, stress management, regular sleep",
+      "remedies": ["Cold compress on forehead", "Peppermint tea", "Ginger tea", "Stay in a quiet room"]
+    },
+    {
+      "name": "Stroke",
+      "type": "Neurological emergency",
+      "symptoms": ["sudden weakness", "speech difficulty", "loss of balance", "blurred vision", "numbness"],
+      "causes": "Blocked or burst blood vessel in brain",
+      "treatment": "Emergency medical care, clot-busting drugs, rehabilitation",
+      "prevention": "Control BP, cholesterol, no smoking",
+      "remedies": ["Immediate hospitalization required", "Control BP", "Healthy diet", "Physiotherapy after recovery"]
+    },
+    {
+      "name": "Epilepsy",
+      "type": "Neurological disorder",
+      "symptoms": ["seizures", "confusion", "loss of consciousness", "muscle stiffness"],
+      "causes": "Genetics, brain injury, infections",
+      "treatment": "Anti-seizure medications",
+      "prevention": "Avoid head injury, regular meds",
+      "remedies": ["Regular medication", "Avoid alcohol", "Yoga", "Adequate sleep"]
+    },
+    {
+      "name": "Anemia",
+      "type": "Blood disorder",
+      "symptoms": ["fatigue", "pale skin", "shortness of breath", "dizziness", "weakness"],
+      "causes": "Iron deficiency, blood loss",
+      "treatment": "Iron supplements, diet rich in iron",
+      "prevention": "Iron-rich diet, control bleeding",
+      "remedies": ["Spinach juice", "Beetroot juice", "Pomegranate", "Iron supplements"]
+    },
+    {
+      "name": "Leukemia",
+      "type": "Cancer",
+      "symptoms": ["fatigue", "fever", "frequent infections", "weight loss", "bone pain"],
+      "causes": "Uncontrolled growth of abnormal white blood cells",
+      "treatment": "Chemotherapy, radiation, stem cell transplant",
+      "prevention": "No sure prevention, healthy lifestyle",
+      "remedies": ["Nutrient-rich diet", "Regular checkups", "Support therapy", "Avoid infections"]
+    },
+    {
+      "name": "Kidney Stones",
+      "type": "Renal condition",
+      "symptoms": ["severe back pain", "blood in urine", "nausea", "frequent urination"],
+      "causes": "Crystal formation in kidneys",
+      "treatment": "Pain relief, hydration, surgery if large",
+      "prevention": "Drink plenty of fluids, reduce salt",
+      "remedies": ["Lemon water", "Coconut water", "Basil juice", "Stay hydrated"]
+    },
+    {
+      "name": "UTI",
+      "type": "Bacterial infection",
+      "symptoms": ["burning urination", "frequent urination", "cloudy urine", "pelvic pain"],
+      "causes": "Bacteria entering urinary tract",
+      "treatment": "Antibiotics, hydration",
+      "prevention": "Hygiene, drink water",
+      "remedies": ["Cranberry juice", "Plenty of water", "Avoid caffeine", "Heating pad on abdomen"]
+    },
+    {
+      "name": "Arthritis",
+      "type": "Joint disorder",
+      "symptoms": ["joint pain", "swelling", "stiffness", "reduced movement"],
+      "causes": "Autoimmune, wear and tear",
+      "treatment": "Painkillers, physiotherapy",
+      "prevention": "Maintain healthy weight, avoid joint strain",
+      "remedies": ["Turmeric milk", "Hot compress", "Omega-3 rich foods", "Gentle exercise"]
+    },
+    {
+      "name": "Osteoporosis",
+      "type": "Bone disease",
+      "symptoms": ["back pain", "fractures", "stooped posture", "loss of height"],
+      "causes": "Calcium/vitamin D deficiency, aging",
+      "treatment": "Calcium, vitamin D supplements, meds",
+      "prevention": "Healthy diet, exercise, no smoking",
+      "remedies": ["Milk and dairy", "Almonds", "Leafy greens", "Weight-bearing exercises"]
+    },
+    {
+      "name": "Obesity",
+      "type": "Metabolic disorder",
+      "symptoms": ["excess weight", "breathlessness", "joint pain", "fatigue"],
+      "causes": "Excess calorie intake, genetics",
+      "treatment": "Diet, exercise, lifestyle change",
+      "prevention": "Balanced diet, physical activity",
+      "remedies": ["Green tea", "High-fiber foods", "Regular exercise", "Avoid junk food"]
+    },
+    {
+      "name": "Depression",
+      "type": "Mental health disorder",
+      "symptoms": ["persistent low mood", "loss of interest", "fatigue", "sleep change", "appetite change"],
+      "causes": "Genetics, stress, trauma",
+      "treatment": "Therapy, antidepressants, lifestyle change",
+      "prevention": "Early care, social support",
+      "remedies": ["Regular exercise", "Mindfulness", "Good sleep", "Therapy"]
+    },
+    {
+      "name": "Anxiety",
+      "type": "Mental health disorder",
+      "symptoms": ["excessive worry", "restlessness", "palpitations", "sleep disturbance"],
+      "causes": "Stress, genetics, brain chemistry",
+      "treatment": "Therapy, SSRIs, CBT",
+      "prevention": "Stress management, healthy lifestyle",
+      "remedies": ["Deep breathing", "Limit caffeine", "Progressive relaxation", "Mindfulness"]
+    },
+    {
+      "name": "Alzheimer’s",
+      "type": "Neurodegenerative disease",
+      "symptoms": ["memory loss", "confusion", "difficulty thinking", "language problems"],
+      "causes": "Abnormal brain protein buildup",
+      "treatment": "Supportive care, medication",
+      "prevention": "Mental activity, healthy lifestyle",
+      "remedies": ["Brain exercises", "Nutritious food", "Routine", "Social support"]
+    },
+    {
+      "name": "Parkinson’s",
+      "type": "Neurodegenerative disorder",
+      "symptoms": ["tremor", "rigid muscles", "slowed movement", "balance issues"],
+      "causes": "Loss of dopamine-producing brain cells",
+      "treatment": "Medication, physiotherapy",
+      "prevention": "Healthy diet, exercise",
+      "remedies": ["Yoga", "Omega-3 foods", "Physical therapy", "Green tea"]
+    },
+    {
+      "name": "Appendicitis",
+      "type": "Emergency condition",
+      "symptoms": ["abdominal pain", "fever", "nausea", "loss of appetite"],
+      "causes": "Inflammation of appendix",
+      "treatment": "Surgery (appendectomy)",
+      "prevention": "No guaranteed prevention",
+      "remedies": ["Medical emergency—needs surgery", "Avoid self-treatment"]
+    },
+    {
+      "name": "Gallstones",
+      "type": "Gallbladder disease",
+      "symptoms": ["abdominal pain", "nausea", "vomiting", "indigestion"],
+      "causes": "Bile imbalance in gallbladder",
+      "treatment": "Surgery if severe",
+      "prevention": "Healthy weight, avoid fatty food",
+      "remedies": ["Apple cider vinegar", "Peppermint tea", "Low-fat meals", "Warm compress"]
+    },
+    {
+      "name": "GERD",
+      "type": "Digestive disorder",
+      "symptoms": ["heartburn", "chest pain", "regurgitation", "sore throat"],
+      "causes": "Weak esophageal sphincter",
+      "treatment": "Antacids, PPIs",
+      "prevention": "Avoid spicy food, eat small meals",
+      "remedies": ["Ginger tea", "Elevate head while sleeping", "Avoid late meals", "Chamomile tea"]
+    },
+    {
+      "name": "Peptic Ulcer",
+      "type": "Digestive disorder",
+      "symptoms": ["abdominal pain", "bloating", "heartburn", "nausea"],
+      "causes": "H. pylori infection, NSAIDs",
+      "treatment": "Antibiotics, antacids",
+      "prevention": "Avoid NSAIDs, treat H. pylori",
+      "remedies": ["Honey", "Banana", "Garlic", "Avoid spicy food"]
+    },
+    {
+      "name": "Irritable Bowel Syndrome",
+      "type": "Digestive disorder",
+      "symptoms": ["abdominal pain", "diarrhea", "constipation", "bloating"],
+      "causes": "Unknown, stress, gut imbalance",
+      "treatment": "Diet changes, medication",
+      "prevention": "Healthy diet, stress control",
+      "remedies": ["Peppermint oil", "High-fiber foods", "Probiotics", "Stress management"]
+    },
+    {
+      "name": "Constipation",
+      "type": "Digestive condition",
+      "symptoms": ["hard stools", "straining", "abdominal pain", "bloating"],
+      "causes": "Low fiber, dehydration",
+      "treatment": "Laxatives, fiber supplements",
+      "prevention": "Fiber-rich diet, water",
+      "remedies": ["Prunes", "Flaxseed", "Warm water", "Exercise"]
+    },
+    {
+      "name": "Diarrhea",
+      "type": "Digestive disorder",
+      "symptoms": ["frequent stools", "abdominal cramps", "nausea", "dehydration"],
+      "causes": "Infections, food poisoning",
+      "treatment": "ORS, fluids, antibiotics if severe",
+      "prevention": "Safe food, hygiene",
+      "remedies": ["ORS solution", "Bananas", "Rice water", "Ginger tea"]
+    },
+    {
+      "name": "Cholera",
+      "type": "Bacterial infection",
+      "symptoms": ["watery diarrhea", "vomiting", "dehydration", "muscle cramps"],
+      "causes": "Vibrio cholerae bacteria",
+      "treatment": "ORS, IV fluids, antibiotics",
+      "prevention": "Clean water, sanitation",
+      "remedies": ["ORS solution", "Coconut water", "Zinc-rich foods", "Stay hydrated"]
+    },
+    {
+      "name": "Meningitis",
+      "type": "Infection",
+      "symptoms": ["stiff neck", "fever", "headache", "nausea", "sensitivity to light"],
+      "causes": "Bacterial/viral infection",
+      "treatment": "Antibiotics, antivirals, hospitalization",
+      "prevention": "Vaccination, avoid exposure",
+      "remedies": ["Emergency care required", "Rest after recovery", "Hydration", "Nutritious food"]
+    },
+    {
+      "name": "Measles",
+      "type": "Viral infection",
+      "symptoms": ["fever", "rash", "cough", "runny nose", "red eyes"],
+      "causes": "Measles virus",
+      "treatment": "Supportive care, Vitamin A",
+      "prevention": "MMR vaccination",
+      "remedies": ["Vitamin A-rich foods", "Rest", "Hydration", "Cool sponge bath"]
+    },
+    {
+      "name": "Chickenpox",
+      "type": "Viral infection",
+      "symptoms": ["fever", "itchy rash", "tiredness", "loss of appetite"],
+      "causes": "Varicella zoster virus",
+      "treatment": "Supportive care, antivirals",
+      "prevention": "Vaccination",
+      "remedies": ["Neem bath", "Calamine lotion", "Cool compress", "Rest"]
+    },
+    {
+      "name": "Rabies",
+      "type": "Viral infection",
+      "symptoms": ["fever", "headache", "hydrophobia", "confusion", "paralysis"],
+      "causes": "Rabies virus via animal bite",
+      "treatment": "Rabies vaccine, immunoglobulin",
+      "prevention": "Vaccinate pets, avoid stray animals",
+      "remedies": ["Emergency vaccination required", "No home remedies—seek medical care"]
+    },
+    {
+      "name": "Polio",
+      "type": "Viral infection",
+      "symptoms": ["fever", "headache", "stiff neck", "paralysis", "fatigue"],
+      "causes": "Poliovirus",
+      "treatment": "Supportive care, physiotherapy",
+      "prevention": "Polio vaccination",
+      "remedies": ["Physiotherapy", "Supportive care", "Nutritious diet", "Vaccination is key"]
+    },
+    {
+      "name": "Whooping Cough",
+      "type": "Bacterial infection",
+      "symptoms": ["severe cough", "whoop sound", "runny nose", "fever"],
+      "causes": "Bordetella pertussis",
+      "treatment": "Antibiotics, cough treatment",
+      "prevention": "DTaP vaccine",
+      "remedies": ["Honey", "Ginger tea", "Warm fluids", "Rest"]
+    },
+    {
+      "name": "Sinusitis",
+      "type": "Respiratory infection",
+      "symptoms": ["facial pain", "nasal congestion", "headache", "cough"],
+      "causes": "Viral, bacterial, or allergy",
+      "treatment": "Decongestants, antibiotics if bacterial",
+      "prevention": "Avoid allergens, good hygiene",
+      "remedies": ["Steam inhalation", "Saline spray", "Ginger tea", "Warm compress"]
+    },
+    {
+      "name": "Allergic Rhinitis",
+      "type": "Allergic condition",
+      "symptoms": ["sneezing", "runny nose", "itchy eyes", "nasal congestion"],
+      "causes": "Pollen, dust, allergens",
+      "treatment": "Antihistamines, nasal sprays",
+      "prevention": "Avoid allergens",
+      "remedies": ["Steam inhalation", "Saline rinse", "Stay indoors during pollen season", "Honey"]
+    },
+    {
+      "name": "Eczema",
+      "type": "Skin condition",
+      "symptoms": ["itchy skin", "rash", "dry skin", "red patches"],
+      "causes": "Genetics, allergies, immune reaction",
+      "treatment": "Moisturizers, steroid creams",
+      "prevention": "Avoid irritants, skin hydration",
+      "remedies": ["Coconut oil", "Oatmeal bath", "Aloe vera gel", "Moisturize regularly"]
+    },
+    {
+      "name": "Psoriasis",
+      "type": "Skin disorder",
+      "symptoms": ["red patches", "scaly skin", "itching", "joint pain"],
+      "causes": "Autoimmune, genetics",
+      "treatment": "Steroid creams, light therapy",
+      "prevention": "Avoid triggers, stress management",
+      "remedies": ["Aloe vera gel", "Fish oil", "Moisturize", "Sunlight exposure"]
+    },
+    {
+      "name": "Ringworm",
+      "type": "Fungal infection",
+      "symptoms": ["circular rash", "itchiness", "red skin patches"],
+      "causes": "Fungal infection",
+      "treatment": "Antifungal creams",
+      "prevention": "Keep skin dry, avoid sharing clothes",
+      "remedies": ["Neem paste", "Coconut oil", "Garlic paste", "Turmeric paste"]
+    },
+    {
+      "name": "Conjunctivitis",
+      "type": "Eye infection",
+      "symptoms": ["red eyes", "itchy eyes", "watery eyes", "swelling"],
+      "causes": "Virus, bacteria, or allergy",
+      "treatment": "Antibiotic/antiviral drops, supportive care",
+      "prevention": "Avoid touching eyes, hygiene",
+      "remedies": ["Cold compress", "Rose water drops", "Aloe vera gel", "Stay indoors"]
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Health Chatbot</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="app">
+    <header class="app-header">
+      <div class="brand">
+        <img class="logo" src="/static/logo.png" alt="logo" />
+        <div>
+          <h1>HealthBot</h1>
+          <div class="sub">AI-powered Symptom Checker & Remedies</div>
+        </div>
+      </div>
+      <!-- 🌙 Dark Mode Button -->
+      <button id="darkToggle" class="dark-btn">🌙 Dark Mode</button>
+    </header>
+
+    <main class="chat-container">
+      <div id="conversation" class="chat"></div>
+
+      <div class="options">
+        <button id="predictBtn" class="mode-btn active" data-mode="predict">🧠 Prediction</button>
+        <button id="remediesBtn" class="mode-btn" data-mode="remedies">🌿 Remedies</button>
+      </div>
+
+      <div class="input-row">
+        <input id="userInput" type="text" placeholder="Enter symptoms or disease name..." />
+        <button id="send">Send</button>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    const conversation = document.getElementById('conversation');
+    const input = document.getElementById('userInput');
+    let currentMode = 'predict';
+
+    document.querySelectorAll('.mode-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentMode = btn.dataset.mode;
+        appendMessage(`Switched to ${currentMode === 'predict' ? 'Prediction' : 'Remedies'} mode.`, 'bot');
+      });
+    });
+
+    function appendMessage(text, cls='bot') {
+      const div = document.createElement('div');
+      div.className = 'message-row ' + (cls === 'user' ? 'user-row' : 'bot-row');
+      div.innerHTML = `<div class="bubble ${cls === 'user' ? 'user-bubble' : 'bot-bubble'}">${text}</div>`;
+      conversation.appendChild(div);
+      conversation.scrollTop = conversation.scrollHeight;
+    }
+
+    document.getElementById('send').addEventListener('click', async () => {
+      const text = input.value.trim();
+      if (!text) return;
+      appendMessage(text, 'user');
+      appendMessage('Thinking...', 'bot');
+
+      const res = await fetch('/api/diagnose', {
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({input: text, mode: currentMode})
+      });
+      const data = await res.json();
+      conversation.lastChild.remove();
+
+      if (data.error) {
+        appendMessage(data.error, 'bot');
+      } else if (currentMode === 'predict') {
+        if (data.matches) {
+          let html = "<b>Possible conditions:</b><br/>";
+          data.matches.forEach(m => {
+            html += `<div><b>${m.name}</b> (${m.type})<br/>
+                     <b>Symptoms:</b> ${m.symptoms.join(", ")}<br/>
+                     <b>Treatment:</b> ${m.treatment}<br/>
+                     <b>Home remedies:</b> ${m.remedies.join("; ")}<br/>
+                     <b>Prevention:</b> ${m.prevention}</div><br/>`;
+          });
+          appendMessage(html, 'bot');
+        }
+      } else if (currentMode === 'remedies') {
+        if (data.name) {
+          appendMessage(`<b>${data.name}</b><br/>
+                         <b>Treatment:</b> ${data.treatment}<br/>
+                         <b>Home remedies:</b> ${data.remedies.join("; ")}<br/>
+                         <b>Prevention:</b> ${data.prevention}`, 'bot');
+        } else {
+          appendMessage(data.message || "No remedies found.", 'bot');
+        }
+      }
+    });
+
+    input.addEventListener('keydown', e => {
+      if (e.key === 'Enter') document.getElementById('send').click();
+    });
+
+    // 🌙 Dark Mode Toggle
+    document.getElementById('darkToggle').addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      const btn = document.getElementById('darkToggle');
+      btn.textContent = document.body.classList.contains('dark-mode') ? "☀️ Light Mode" : "🌙 Dark Mode";
+    });
+  </script>
+</body>
+</html>
