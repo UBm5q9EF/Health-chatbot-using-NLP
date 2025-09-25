@@ -1,6 +1,7 @@
 import json
 from flask import Flask, request, jsonify, render_template
-from rapidfuzz import fuzz, process
+from fuzzywuzzy import fuzz, process
+
 import re
 
 app = Flask(__name__, template_folder="templates", static_folder="static")
