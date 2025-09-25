@@ -23,7 +23,3 @@ build/
 Thumbs.db
 .vscode/
 .idea/
-
-# If you don’t want to upload environment files, ignore them too:
-environment.yml
-requirements.txt

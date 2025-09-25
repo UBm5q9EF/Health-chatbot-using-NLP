@@ -1,0 +1,20 @@
+name: healthchat
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.9
+  - flask
+  - flask-cors
+  - spacy
+  - scikit-learn
+  - fuzzywuzzy
+  - python-levenshtein
+  - pip
+  - pip:
+      - transformers
+      - datasets
+      - sentencepiece
+      - torch
+      - torchvision
+      - torchaudio
