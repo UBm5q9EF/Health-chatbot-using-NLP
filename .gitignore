@@ -1,0 +1,29 @@
+# Ignore virtual environments
+venv/
+ENV/
+env/
+
+# Ignore Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore pip installer scripts
+get-pip.py
+
+# Ignore build and environment files
+*.egg-info/
+dist/
+build/
+*.log
+
+# Ignore OS / IDE files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# If you don’t want to upload environment files, ignore them too:
+environment.yml
+requirements.txt
