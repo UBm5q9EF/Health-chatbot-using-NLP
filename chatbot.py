@@ -68,7 +68,6 @@ def chat():
     user_input = (payload.get("input") or "").strip()
     user_id = request.remote_addr or "local-user"
 
-    # Initialize session
     if user_id not in USER_CONTEXTS:
         USER_CONTEXTS[user_id] = [
             {"role": "assistant", "content": "Hi! How are you feeling today?"}
@@ -77,7 +76,7 @@ def chat():
     history = USER_CONTEXTS[user_id]
     history.append({"role": "user", "content": user_input})
 
-    # Handle "yes" if bot just asked about remedies
+    # ✅ If user said "yes" to remedies
     if user_input.lower() in ["yes", "yeah", "yup", "ok", "okay"]:
         last_disease = USER_STATE.get(user_id)
         if last_disease:
@@ -91,16 +90,16 @@ def chat():
                 history.append({"role": "assistant", "content": reply})
                 return jsonify({"reply": reply})
 
-    # Extract symptoms
+    # ✅ NLP-based symptom extraction
     symptoms = extract_symptoms(user_input)
 
-    # If 2+ symptoms, diagnose
+    # ✅ If enough symptoms, diagnose
     if len(symptoms) >= 2:
         matches = diagnose(symptoms)
         if matches:
             names = ", ".join(d["name"] for d in matches)
             top = matches[0]
-            USER_STATE[user_id] = top["name"]  # store for "yes" follow-up
+            USER_STATE[user_id] = top["name"]
             reply = (
                 f"Based on what you've shared, possible conditions are: {names}.\n\n"
                 f"Most likely: **{top['name']}**\n"
@@ -110,7 +109,7 @@ def chat():
             history.append({"role": "assistant", "content": reply})
             return jsonify({"reply": reply})
 
-    # If direct disease mention
+    # ✅ If direct disease name mentioned
     for d in DISEASES:
         if normalize(d["name"]) in normalize(user_input):
             info = get_disease_by_name(d["name"])
@@ -123,13 +122,13 @@ def chat():
                 history.append({"role": "assistant", "content": reply})
                 return jsonify({"reply": reply})
 
-    # Not enough symptoms
+    # ❌ Not enough info
     reply = "I couldn't detect enough symptoms to offer a diagnosis. Could you please describe how you're feeling in more detail?"
     history.append({"role": "assistant", "content": reply})
     return jsonify({"reply": reply})
 
 # ------------------ Run App ------------------
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))
-    print(f"🚀 Running on http://127.0.0.1:{port}")
-    app.run(host="0.0.0.0", port=port, debug=True)
+    port = int(os.environ.get("PORT", 10000))
+    print(f"🚀 Running on http://0.0.0.0:{port}")
+    app.run(host="0.0.0.0", port=port)
