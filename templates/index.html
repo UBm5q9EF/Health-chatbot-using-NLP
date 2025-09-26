@@ -1,111 +1,112 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Health Chatbot</title>
-  <link rel="stylesheet" href="/static/style.css">
+  <meta charset="UTF-8" />
+  <title>Healtho - AI Health Chatbot</title>
+  <link rel="stylesheet" href="/static/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <div class="app">
-    <header class="app-header">
+  <div class="chat-shell">
+    <header class="chat-header">
       <div class="brand">
-        <img class="logo" src="/static/logo.png" alt="logo" />
-        <div>
-          <h1>HealthBot</h1>
-          <div class="sub">AI-powered Symptom Checker & Remedies</div>
+        <img src="https://pinnacle.works/wp-content/uploads/2019/10/health-bot.png" alt="Healtho Logo" />
+        <div class="titles">
+          <h1>Healtho</h1>
+          <p>Your AI Healthcare Assistant</p>
         </div>
       </div>
-      <!-- 🌙 Dark Mode Button -->
-      <button id="darkToggle" class="dark-btn">🌙 Dark Mode</button>
     </header>
 
-    <main class="chat-container">
-      <div id="conversation" class="chat"></div>
+    <main id="chat-box" class="chat-box"></main>
 
-      <div class="options">
-        <button id="predictBtn" class="mode-btn active" data-mode="predict">🧠 Prediction</button>
-        <button id="remediesBtn" class="mode-btn" data-mode="remedies">🌿 Remedies</button>
-      </div>
+    <div id="typing-indicator" class="typing hidden">
+      <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+      <span class="typing-text">Bot is typing…</span>
+    </div>
 
-      <div class="input-row">
-        <input id="userInput" type="text" placeholder="Enter symptoms or disease name..." />
-        <button id="send">Send</button>
-      </div>
-    </main>
+    <footer class="chat-input">
+      <input type="text" id="user-input" placeholder="Type your message…" autocomplete="off" />
+      <button id="send-btn" class="btn">Send</button>
+      <button id="mic-btn" class="btn mic" title="Speak">🎤</button>
+    </footer>
   </div>
 
   <script>
-    const conversation = document.getElementById('conversation');
-    const input = document.getElementById('userInput');
-    let currentMode = 'predict';
+    const chatBox = document.getElementById("chat-box");
+    const typing = document.getElementById("typing-indicator");
+    const input = document.getElementById("user-input");
+    const sendBtn = document.getElementById("send-btn");
+    const micBtn = document.getElementById("mic-btn");
 
-    document.querySelectorAll('.mode-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        currentMode = btn.dataset.mode;
-        appendMessage(`Switched to ${currentMode === 'predict' ? 'Prediction' : 'Remedies'} mode.`, 'bot');
-      });
-    });
-
-    function appendMessage(text, cls='bot') {
-      const div = document.createElement('div');
-      div.className = 'message-row ' + (cls === 'user' ? 'user-row' : 'bot-row');
-      div.innerHTML = `<div class="bubble ${cls === 'user' ? 'user-bubble' : 'bot-bubble'}">${text}</div>`;
-      conversation.appendChild(div);
-      conversation.scrollTop = conversation.scrollHeight;
+    function bubble(from, text) {
+      const msg = document.createElement("div");
+      msg.className = `msg ${from.toLowerCase()}`;
+      msg.innerHTML = `
+        <div class="avatar">${from === "Bot" ? "🤖" : "👤"}</div>
+        <div class="bubble">${text}</div>
+      `;
+      chatBox.appendChild(msg);
+      chatBox.scrollTop = chatBox.scrollHeight;
     }
 
-    document.getElementById('send').addEventListener('click', async () => {
+    async function sendMessage() {
       const text = input.value.trim();
       if (!text) return;
-      appendMessage(text, 'user');
-      appendMessage('Thinking...', 'bot');
 
-      const res = await fetch('/api/diagnose', {
-        method:'POST',
-        headers:{'Content-Type':'application/json'},
-        body: JSON.stringify({input: text, mode: currentMode})
-      });
-      const data = await res.json();
-      conversation.lastChild.remove();
+      bubble("User", text);
+      input.value = "";
 
-      if (data.error) {
-        appendMessage(data.error, 'bot');
-      } else if (currentMode === 'predict') {
-        if (data.matches) {
-          let html = "<b>Possible conditions:</b><br/>";
-          data.matches.forEach(m => {
-            html += `<div><b>${m.name}</b> (${m.type})<br/>
-                     <b>Symptoms:</b> ${m.symptoms.join(", ")}<br/>
-                     <b>Treatment:</b> ${m.treatment}<br/>
-                     <b>Home remedies:</b> ${m.remedies.join("; ")}<br/>
-                     <b>Prevention:</b> ${m.prevention}</div><br/>`;
-          });
-          appendMessage(html, 'bot');
-        }
-      } else if (currentMode === 'remedies') {
-        if (data.name) {
-          appendMessage(`<b>${data.name}</b><br/>
-                         <b>Treatment:</b> ${data.treatment}<br/>
-                         <b>Home remedies:</b> ${data.remedies.join("; ")}<br/>
-                         <b>Prevention:</b> ${data.prevention}`, 'bot');
-        } else {
-          appendMessage(data.message || "No remedies found.", 'bot');
-        }
+      typing.classList.remove("hidden");
+
+      try {
+        const res = await fetch("/api/chat", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ input: text })
+        });
+        const data = await res.json();
+        typing.classList.add("hidden");
+        bubble("Bot", data.reply);
+      } catch (e) {
+        typing.classList.add("hidden");
+        bubble("Bot", "⚠️ Something went wrong. Please try again.");
       }
+    }
+
+    input.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") sendMessage();
     });
 
-    input.addEventListener('keydown', e => {
-      if (e.key === 'Enter') document.getElementById('send').click();
-    });
+    sendBtn.addEventListener("click", sendMessage);
 
-    // 🌙 Dark Mode Toggle
-    document.getElementById('darkToggle').addEventListener('click', () => {
-      document.body.classList.toggle('dark-mode');
-      const btn = document.getElementById('darkToggle');
-      btn.textContent = document.body.classList.contains('dark-mode') ? "☀️ Light Mode" : "🌙 Dark Mode";
+    // 👋 Auto-greeting from bot
+    window.onload = () => {
+      bubble("Bot", "Hi! How are you feeling today?");
+      input.focus();
+    };
+
+    // 🎤 Voice input using Web Speech API
+    micBtn.addEventListener("click", () => {
+      const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+      if (!SR) return alert("🎤 Speech recognition not supported in this browser.");
+
+      const recog = new SR();
+      recog.lang = "en-US";
+      recog.interimResults = false;
+      recog.maxAlternatives = 1;
+
+      recog.onresult = (e) => {
+        const said = e.results[0][0].transcript;
+        input.value = said;
+        sendMessage();
+      };
+
+      recog.onerror = () => {
+        bubble("Bot", "I couldn't hear you clearly. Please try again.");
+      };
+
+      recog.start();
     });
   </script>
 </body>

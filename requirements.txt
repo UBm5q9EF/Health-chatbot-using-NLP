@@ -1,5 +1,6 @@
 flask
 flask-cors
+flask-session
 fuzzywuzzy
 python-Levenshtein
 scikit-learn
@@ -7,3 +8,5 @@ transformers
 torch
 spacy
 gunicorn
+openai
+python-dotenv
