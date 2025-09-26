@@ -1,16 +1,11 @@
+
 import os
 import json
 import spacy
-from dotenv import load_dotenv
 from flask import Flask, request, jsonify, render_template
 from flask_session import Session
 from flask_cors import CORS
 from fuzzywuzzy import process, fuzz
-from openai import OpenAI
-
-# ------------------ Env & Clients ------------------
-load_dotenv()
-client = OpenAI()
 
 # ------------------ Flask Setup ------------------
 app = Flask(__name__, template_folder="templates", static_folder="static")
@@ -77,40 +72,31 @@ def chat():
     # Initialize session
     if user_id not in USER_CONTEXTS:
         USER_CONTEXTS[user_id] = [
-            {
-                "role": "system",
-                "content": (
-                    "You are Healtho, a friendly healthcare assistant. "
-                    "Greet the user, ask how they’re feeling, extract symptoms, "
-                    "offer possible conditions from the user's symptom list, and "
-                    "share remedies/prevention from the local database when asked. "
-                    "Be empathetic, concise, and natural."
-                ),
-            },
             {"role": "assistant", "content": "Hi! How are you feeling today?"}
         ]
 
     history = USER_CONTEXTS[user_id]
     history.append({"role": "user", "content": user_input})
 
-    # ✅ Handle "yes" if bot just asked about remedies
+    # Handle "yes" if bot just asked about remedies
     if user_input.lower() in ["yes", "yeah", "yup", "ok", "okay"]:
         last_disease = USER_STATE.get(user_id)
         if last_disease:
             info = get_disease_by_name(last_disease)
             if info:
                 reply = (
-                    f"🩺 Remedies for {info['name']}:\n"
+                    f"🩺 Remedies for {info['name']}:
+"
                     + "\n".join(f"- {r}" for r in info.get("remedies", []))
                     + f"\n\nPrevention: {info.get('prevention', 'Not specified')}"
                 )
                 history.append({"role": "assistant", "content": reply})
                 return jsonify({"reply": reply})
 
-    # ✅ Extract symptoms
+    # Extract symptoms
     symptoms = extract_symptoms(user_input)
 
-    # ✅ If 2+ symptoms, diagnose
+    # If 2+ symptoms, diagnose
     if len(symptoms) >= 2:
         matches = diagnose(symptoms)
         if matches:
@@ -126,42 +112,24 @@ def chat():
             history.append({"role": "assistant", "content": reply})
             return jsonify({"reply": reply})
 
-    # ✅ If direct disease mention (e.g., "Chickenpox")
+    # If direct disease mention
     for d in DISEASES:
         if normalize(d["name"]) in normalize(user_input):
             info = get_disease_by_name(d["name"])
             if info:
                 reply = (
-                    f"🩺 Remedies for {info['name']}:\n"
+                    f"🩺 Remedies for {info['name']}:
+"
                     + "\n".join(f"- {r}" for r in info.get("remedies", []))
                     + f"\n\nPrevention: {info.get('prevention', 'Not specified')}"
                 )
                 history.append({"role": "assistant", "content": reply})
                 return jsonify({"reply": reply})
 
-    # ❌ Not enough symptoms
-    if len(symptoms) < 2:
-        reply = "I couldn't detect enough symptoms to offer a diagnosis. Could you please describe how you're feeling in more detail?"
-        history.append({"role": "assistant", "content": reply})
-        return jsonify({"reply": reply})
-
-    # 🤖 Fallback to GPT-3.5
-    try:
-        response = client.chat.completions.create(
-            model="gpt-3.5-turbo",
-            temperature=0.8,
-            messages=history
-        )
-        bot_reply = response.choices[0].message.content
-    except Exception as e:
-        print("❌ GPT API Error:", str(e))
-        bot_reply = (
-            "⚠️ Sorry, I'm unable to connect to the AI service right now. "
-            "You can still tell me your symptoms, and I’ll try my best to assist you!"
-        )
-
-    history.append({"role": "assistant", "content": bot_reply})
-    return jsonify({"reply": bot_reply})
+    # Not enough symptoms
+    reply = "I couldn't detect enough symptoms to offer a diagnosis. Could you please describe how you're feeling in more detail?"
+    history.append({"role": "assistant", "content": reply})
+    return jsonify({"reply": reply})
 
 # ------------------ Run App ------------------
 if __name__ == "__main__":
