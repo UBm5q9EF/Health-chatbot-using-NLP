@@ -1,4 +1,3 @@
-
 import os
 import json
 import spacy
@@ -85,8 +84,7 @@ def chat():
             info = get_disease_by_name(last_disease)
             if info:
                 reply = (
-                    f"🩺 Remedies for {info['name']}:
-"
+                    f"🩺 Remedies for {info['name']}:\n"
                     + "\n".join(f"- {r}" for r in info.get("remedies", []))
                     + f"\n\nPrevention: {info.get('prevention', 'Not specified')}"
                 )
@@ -118,8 +116,7 @@ def chat():
             info = get_disease_by_name(d["name"])
             if info:
                 reply = (
-                    f"🩺 Remedies for {info['name']}:
-"
+                    f"🩺 Remedies for {info['name']}:\n"
                     + "\n".join(f"- {r}" for r in info.get("remedies", []))
                     + f"\n\nPrevention: {info.get('prevention', 'Not specified')}"
                 )
