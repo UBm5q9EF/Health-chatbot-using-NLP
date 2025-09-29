@@ -422,6 +422,186 @@
       "treatment": "Antibiotic/antiviral drops, supportive care",
       "prevention": "Avoid touching eyes, hygiene",
       "remedies": ["Cold compress", "Rose water drops", "Aloe vera gel", "Stay indoors"]
+    },
+        {
+      "name": "Celiac Disease",
+      "type": "Autoimmune disorder",
+      "symptoms": ["diarrhea", "bloating", "fatigue", "weight loss", "anemia"],
+      "causes": "Immune reaction to gluten (wheat, barley, rye)",
+      "treatment": "Strict gluten-free diet",
+      "prevention": "Avoid gluten-containing foods",
+      "remedies": ["Gluten-free whole grains like rice/quinoa", "Vitamin supplements", "Hydration", "Probiotics"]
+    },
+    {
+      "name": "Gout",
+      "type": "Arthritic condition",
+      "symptoms": ["joint pain", "swelling", "redness", "tenderness"],
+      "causes": "Uric acid crystal buildup in joints",
+      "treatment": "Anti-inflammatory drugs, uric acid-lowering medication",
+      "prevention": "Limit alcohol, avoid red meat, maintain healthy weight",
+      "remedies": ["Cherry juice", "Cold compress", "Plenty of water", "Avoid purine-rich foods"]
+    },
+    {
+      "name": "Cataract",
+      "type": "Eye condition",
+      "symptoms": ["blurred vision", "glare sensitivity", "fading colors", "poor night vision"],
+      "causes": "Aging, diabetes, prolonged sun exposure",
+      "treatment": "Surgery (lens replacement)",
+      "prevention": "Wear sunglasses, control diabetes, avoid smoking",
+      "remedies": ["Vitamin C-rich foods", "Green leafy vegetables", "Avoid smoking", "Protect eyes from UV rays"]
+    },
+    {
+      "name": "Glaucoma",
+      "type": "Eye disorder",
+      "symptoms": ["eye pain", "blurred vision", "headache", "loss of peripheral vision"],
+      "causes": "High eye pressure damaging optic nerve",
+      "treatment": "Eye drops, surgery, laser therapy",
+      "prevention": "Regular eye exams, manage diabetes, protect eyes",
+      "remedies": ["Green tea", "Omega-3 rich foods", "Avoid smoking", "Stay hydrated"]
+    },
+    {
+      "name": "Hemophilia",
+      "type": "Genetic blood disorder",
+      "symptoms": ["excessive bleeding", "bruising", "joint pain", "nosebleeds"],
+      "causes": "Inherited clotting factor deficiency",
+      "treatment": "Clotting factor replacement therapy",
+      "prevention": "Avoid injury, careful with medications",
+      "remedies": ["Medical supervision is key", "Physical therapy", "Iron-rich diet", "Avoid aspirin"]
+    },
+    {
+      "name": "Thalassemia",
+      "type": "Genetic blood disorder",
+      "symptoms": ["anemia", "fatigue", "pale skin", "bone deformities"],
+      "causes": "Genetic mutation affecting hemoglobin production",
+      "treatment": "Blood transfusions, iron chelation, bone marrow transplant",
+      "prevention": "Genetic counseling",
+      "remedies": ["Folic acid supplements", "Iron-free multivitamins", "Balanced diet", "Regular checkups"]
+    },
+    {
+      "name": "Pancreatitis",
+      "type": "Digestive disorder",
+      "symptoms": ["severe abdominal pain", "nausea", "vomiting", "fever"],
+      "causes": "Gallstones, alcohol abuse, high triglycerides",
+      "treatment": "Hospitalization, IV fluids, pain management",
+      "prevention": "Limit alcohol, healthy diet, avoid smoking",
+      "remedies": ["Low-fat meals", "Stay hydrated", "Rest", "Avoid alcohol"]
+    },
+    {
+      "name": "Cirrhosis",
+      "type": "Liver disease",
+      "symptoms": ["fatigue", "jaundice", "swelling in legs", "easy bruising"],
+      "causes": "Chronic alcohol use, hepatitis B/C, fatty liver disease",
+      "treatment": "Lifestyle changes, medication, liver transplant if severe",
+      "prevention": "Avoid alcohol, maintain healthy weight, vaccination for hepatitis",
+      "remedies": ["Balanced diet", "Limit salt", "Avoid alcohol", "Frequent medical monitoring"]
+    },
+    {
+      "name": "Lyme Disease",
+      "type": "Bacterial infection",
+      "symptoms": ["rash (bullseye pattern)", "fever", "fatigue", "joint pain"],
+      "causes": "Borrelia bacteria from tick bites",
+      "treatment": "Antibiotics",
+      "prevention": "Avoid tick bites, use insect repellent",
+      "remedies": ["Rest", "Herbal teas", "Anti-inflammatory foods", "Hydration"]
+    },
+    {
+      "name": "HIV/AIDS",
+      "type": "Viral infection",
+      "symptoms": ["fever", "weight loss", "night sweats", "frequent infections"],
+      "causes": "Human Immunodeficiency Virus",
+      "treatment": "Antiretroviral therapy (ART)",
+      "prevention": "Safe sex, avoid needle sharing, mother-to-child prevention",
+      "remedies": ["Nutrient-rich diet", "Stress management", "Regular medical care", "Avoid alcohol and smoking"]
+    },
+        {
+      "name": "Common Cold",
+      "type": "Viral infection",
+      "symptoms": ["runny nose", "sneezing", "sore throat", "mild cough", "congestion"],
+      "causes": "Rhinovirus and other cold viruses",
+      "treatment": "Rest, fluids, over-the-counter cold medicine",
+      "prevention": "Hand hygiene, avoid close contact with infected people",
+      "remedies": ["Ginger tea", "Warm soup", "Steam inhalation", "Honey with warm water"]
+    },
+    {
+      "name": "Tonsillitis",
+      "type": "Throat infection",
+      "symptoms": ["sore throat", "difficulty swallowing", "swollen tonsils", "fever"],
+      "causes": "Viral or bacterial infection (Streptococcus bacteria common)",
+      "treatment": "Antibiotics if bacterial, rest, warm fluids",
+      "prevention": "Good hygiene, avoid close contact with sick people",
+      "remedies": ["Warm salt water gargle", "Honey and ginger", "Ice chips", "Rest"]
+    },
+    {
+      "name": "Acne",
+      "type": "Skin condition",
+      "symptoms": ["pimples", "blackheads", "whiteheads", "oily skin"],
+      "causes": "Clogged pores, excess oil, bacteria, hormones",
+      "treatment": "Topical creams, antibiotics, retinoids",
+      "prevention": "Wash face regularly, avoid oily food, stress management",
+      "remedies": ["Aloe vera gel", "Tea tree oil", "Honey mask", "Drink water"]
+    },
+    {
+      "name": "Hair Loss (Alopecia)",
+      "type": "Hair/skin condition",
+      "symptoms": ["hair thinning", "bald patches", "weakened hair roots"],
+      "causes": "Genetics, stress, hormonal changes, poor nutrition",
+      "treatment": "Medications (minoxidil, finasteride), hair transplant",
+      "prevention": "Balanced diet, stress control, avoid harsh chemicals",
+      "remedies": ["Onion juice", "Coconut oil massage", "Amla (gooseberry)", "Balanced diet"]
+    },
+    {
+      "name": "Food Poisoning",
+      "type": "Digestive infection",
+      "symptoms": ["vomiting", "diarrhea", "abdominal cramps", "fever"],
+      "causes": "Contaminated food or water (bacteria, viruses, toxins)",
+      "treatment": "Rest, hydration, antibiotics if severe",
+      "prevention": "Safe food handling, proper cooking, clean water",
+      "remedies": ["ORS solution", "Ginger tea", "Banana", "Light meals"]
+    },
+    {
+      "name": "Acidity (Acid Reflux)",
+      "type": "Digestive condition",
+      "symptoms": ["heartburn", "chest discomfort", "sour taste in mouth", "bloating"],
+      "causes": "Overeating, spicy food, weak esophageal sphincter",
+      "treatment": "Antacids, proton pump inhibitors (PPIs)",
+      "prevention": "Eat small meals, avoid spicy food, don’t lie down after eating",
+      "remedies": ["Cold milk", "Banana", "Ginger tea", "Avoid late-night meals"]
+    },
+    {
+      "name": "Skin Allergy",
+      "type": "Allergic condition",
+      "symptoms": ["itching", "rashes", "redness", "swelling"],
+      "causes": "Allergens like dust, food, medicines, insect bites",
+      "treatment": "Antihistamines, steroid creams",
+      "prevention": "Avoid allergens, keep skin clean, use hypoallergenic products",
+      "remedies": ["Aloe vera gel", "Oatmeal bath", "Neem paste", "Cold compress"]
+    },
+    {
+      "name": "Heat Stroke",
+      "type": "Heat-related illness",
+      "symptoms": ["high fever", "confusion", "dry skin", "dizziness"],
+      "causes": "Prolonged exposure to high temperatures and dehydration",
+      "treatment": "Immediate cooling, IV fluids, hospitalization if severe",
+      "prevention": "Stay hydrated, avoid excessive heat exposure",
+      "remedies": ["ORS solution", "Cool sponge bath", "Coconut water", "Rest in shade"]
+    },
+    {
+      "name": "Sunburn",
+      "type": "Skin condition",
+      "symptoms": ["red skin", "pain", "blistering", "peeling skin"],
+      "causes": "Overexposure to UV rays",
+      "treatment": "Cool compress, aloe vera gel, pain relievers",
+      "prevention": "Use sunscreen, protective clothing, avoid peak sun hours",
+      "remedies": ["Aloe vera gel", "Cucumber slices", "Cold compress", "Stay hydrated"]
+    },
+    {
+      "name": "Dehydration",
+      "type": "Body fluid imbalance",
+      "symptoms": ["dry mouth", "dizziness", "dark urine", "fatigue"],
+      "causes": "Excessive fluid loss from heat, exercise, diarrhea, vomiting",
+      "treatment": "Rehydration with water or oral rehydration solutions",
+      "prevention": "Drink adequate water daily, especially in hot weather",
+      "remedies": ["ORS solution", "Coconut water", "Buttermilk", "Watermelon"]
     }
   ]
 }
