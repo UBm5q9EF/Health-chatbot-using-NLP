@@ -602,6 +602,96 @@
       "treatment": "Rehydration with water or oral rehydration solutions",
       "prevention": "Drink adequate water daily, especially in hot weather",
       "remedies": ["ORS solution", "Coconut water", "Buttermilk", "Watermelon"]
+    },
+        {
+      "name": "Insomnia",
+      "type": "Sleep disorder",
+      "symptoms": ["difficulty falling asleep", "frequent waking", "daytime fatigue", "irritability"],
+      "causes": "Stress, anxiety, caffeine, irregular sleep schedule",
+      "treatment": "Cognitive behavioral therapy, sleep aids (if prescribed)",
+      "prevention": "Regular sleep routine, limit caffeine, reduce screen time before bed",
+      "remedies": ["Warm milk", "Chamomile tea", "Meditation", "Dark and quiet bedroom"]
+    },
+    {
+      "name": "Sinusitis",
+      "type": "Respiratory condition",
+      "symptoms": ["facial pain", "nasal congestion", "headache", "thick nasal discharge"],
+      "causes": "Infection, allergies, nasal polyps",
+      "treatment": "Decongestants, antibiotics if bacterial, steam inhalation",
+      "prevention": "Treat colds early, avoid allergens, maintain hygiene",
+      "remedies": ["Steam inhalation", "Saline nasal spray", "Warm compress", "Ginger tea"]
+    },
+    {
+      "name": "Urinary Tract Infection (UTI)",
+      "type": "Urinary infection",
+      "symptoms": ["burning sensation while urinating", "frequent urge to urinate", "cloudy urine", "pelvic pain"],
+      "causes": "Bacterial infection (commonly E. coli)",
+      "treatment": "Antibiotics, increased water intake",
+      "prevention": "Good personal hygiene, drink plenty of fluids, urinate after intercourse",
+      "remedies": ["Cranberry juice", "Warm compress on abdomen", "Probiotics", "Drink water"]
+    },
+    {
+      "name": "Migraine",
+      "type": "Neurological disorder",
+      "symptoms": ["intense headache", "nausea", "sensitivity to light and sound", "blurred vision"],
+      "causes": "Stress, hormonal changes, lack of sleep, certain foods",
+      "treatment": "Pain relievers, triptans, preventive medications",
+      "prevention": "Identify triggers, regular sleep, balanced diet",
+      "remedies": ["Cold compress on head", "Ginger tea", "Peppermint oil massage", "Rest in dark room"]
+    },
+    {
+      "name": "Conjunctivitis (Pink Eye)",
+      "type": "Eye infection",
+      "symptoms": ["redness in eye", "itching", "watery discharge", "swelling of eyelids"],
+      "causes": "Viral or bacterial infection, allergies",
+      "treatment": "Antibiotic/antiviral eye drops, antihistamines if allergic",
+      "prevention": "Avoid touching eyes, wash hands regularly, don’t share towels",
+      "remedies": ["Cold compress", "Rose water drops", "Aloe vera gel (diluted)", "Maintain eye hygiene"]
+    },
+    {
+      "name": "Eczema",
+      "type": "Skin condition",
+      "symptoms": ["dry skin", "itching", "red patches", "cracked skin"],
+      "causes": "Genetics, allergies, immune system overreaction",
+      "treatment": "Moisturizers, steroid creams, antihistamines",
+      "prevention": "Avoid harsh soaps, keep skin moisturized, wear soft clothing",
+      "remedies": ["Coconut oil", "Aloe vera gel", "Oatmeal bath", "Neem leaves paste"]
+    },
+    {
+      "name": "Gallstones",
+      "type": "Digestive condition",
+      "symptoms": ["abdominal pain (right side)", "nausea", "vomiting", "indigestion"],
+      "causes": "Excess cholesterol or bilirubin in bile",
+      "treatment": "Surgery (cholecystectomy) if severe, medications to dissolve stones",
+      "prevention": "Healthy diet, maintain weight, avoid fatty foods",
+      "remedies": ["Apple cider vinegar with warm water", "Lemon juice", "Peppermint tea", "Maintain hydration"]
+    },
+    {
+      "name": "Osteoarthritis",
+      "type": "Joint disorder",
+      "symptoms": ["joint pain", "stiffness", "swelling", "reduced mobility"],
+      "causes": "Wear and tear of cartilage, aging, obesity",
+      "treatment": "Pain relievers, physiotherapy, joint replacement surgery in severe cases",
+      "prevention": "Regular exercise, healthy weight, avoid joint injuries",
+      "remedies": ["Hot compress", "Turmeric milk", "Omega-3 rich diet", "Physiotherapy exercises"]
+    },
+    {
+      "name": "Sciatica",
+      "type": "Nerve pain condition",
+      "symptoms": ["sharp pain radiating from lower back to legs", "numbness", "tingling"],
+      "causes": "Herniated disc, spinal stenosis, muscle spasm pressing on sciatic nerve",
+      "treatment": "Pain relievers, physiotherapy, surgery if severe",
+      "prevention": "Maintain posture, exercise, avoid lifting heavy weights incorrectly",
+      "remedies": ["Hot and cold compress", "Yoga stretches", "Massage therapy", "Turmeric supplements"]
+    },
+    {
+      "name": "Bronchitis",
+      "type": "Respiratory infection",
+      "symptoms": ["persistent cough", "mucus production", "wheezing", "fatigue"],
+      "causes": "Viral or bacterial infection, smoking, air pollution",
+      "treatment": "Rest, fluids, inhalers, antibiotics if bacterial",
+      "prevention": "Avoid smoking, wear masks in polluted areas, strengthen immunity",
+      "remedies": ["Honey and ginger tea", "Steam inhalation", "Tulsi leaves", "Turmeric milk"]
     }
   ]
 }
