@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Healtho - AI Health Chatbot</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- External Resources -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+  
+  <!-- Local Styles -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <div class="chat-shell">
+    <!-- 🧠 Header -->
+    <header class="chat-header">
+      <div class="brand">
+        <img src="https://pinnacle.works/wp-content/uploads/2019/10/health-bot.png" alt="Healtho Logo" />
+        <div class="titles">
+          <h1>Healtho</h1>
+          <p>Your AI Healthcare Assistant</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button id="history-btn" class="btn ghost"><i class="fa fa-clock-rotate-left"></i> History</button>
+        <button id="clear-history-btn" class="btn ghost"><i class="fa fa-trash"></i></button>
+      </div>
+    </header>
+
+    <!-- 💬 Chat window -->
+    <main id="chat-box" class="chat-box"></main>
+
+    <!-- ⏳ Typing indicator -->
+    <div id="typing-indicator" class="typing hidden">
+      <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+      <span class="typing-text">Bot is typing…</span>
+    </div>
+
+    <!-- 🧾 Input area -->
+    <footer class="chat-input">
+      <input type="text" id="user-input" placeholder="Describe your symptoms…" autocomplete="off" />
+      <div class="input-buttons">
+        <button id="send-btn" class="btn"><i class="fa fa-paper-plane"></i> Send</button>
+        <button id="mic-btn" class="btn mic" title="Speak"><i class="fa fa-microphone"></i></button>
+      </div>
+    </footer>
+  </div>
+
+  <!-- 🗃️ History Modal -->
+  <div id="history-modal" class="modal hidden">
+    <div class="modal-card">
+      <div class="modal-head">
+        <h3><i class="fa fa-clock"></i> Prediction History</h3>
+        <button id="close-history" class="btn ghost">✕</button>
+      </div>
+      <div id="history-list" class="history-list"></div>
+    </div>
+  </div>
+
+  <!-- ✅ Script -->
+  <script>
+    const chatBox = document.getElementById("chat-box");
+    const typing = document.getElementById("typing-indicator");
+    const input = document.getElementById("user-input");
+    const sendBtn = document.getElementById("send-btn");
+    const micBtn = document.getElementById("mic-btn");
+    const historyBtn = document.getElementById("history-btn");
+    const clearHistoryBtn = document.getElementById("clear-history-btn");
+    const historyModal = document.getElementById("history-modal");
+    const closeHistory = document.getElementById("close-history");
+    const historyList = document.getElementById("history-list");
+
+    function bubble(from, text) {
+      const msg = document.createElement("div");
+      msg.className = `msg ${from.toLowerCase()}`;
+      msg.innerHTML = `
+        <div class="avatar">${from === "Bot" ? "🤖" : "👤"}</div>
+        <div class="bubble">${text}</div>
+      `;
+      chatBox.appendChild(msg);
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+    async function sendMessage() {
+      const text = input.value.trim();
+      if (!text) return;
+      bubble("User", text);
+      input.value = "";
+      typing.classList.remove("hidden");
+
+      try {
+        const res = await fetch("/api/chat", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ input: text })
+        });
+        const data = await res.json();
+        typing.classList.add("hidden");
+        bubble("Bot", data.reply);
+      } catch (e) {
+        typing.classList.add("hidden");
+        bubble("Bot", "⚠️ Something went wrong. Please try again.");
+      }
+    }
+
+    input.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") sendMessage();
+    });
+    sendBtn.addEventListener("click", sendMessage);
+
+    // 🎤 Voice input
+    micBtn.addEventListener("click", () => {
+      const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+      if (!SR) return alert("🎤 Speech recognition not supported.");
+
+      const recog = new SR();
+      recog.lang = "en-US";
+      recog.interimResults = false;
+      recog.maxAlternatives = 1;
+
+      micBtn.classList.add("listening");
+      micBtn.innerHTML = "<i class='fa fa-wave-square'></i>";
+
+      recog.onresult = (e) => {
+        const said = e.results[0][0].transcript;
+        micBtn.classList.remove("listening");
+        micBtn.innerHTML = "<i class='fa fa-microphone'></i>";
+        input.value = said;
+        sendMessage();
+      };
+
+      recog.onerror = () => {
+        micBtn.classList.remove("listening");
+        micBtn.innerHTML = "<i class='fa fa-microphone'></i>";
+        bubble("Bot", "I couldn’t hear you clearly. Try again.");
+      };
+
+      recog.start();
+    });
+
+    // Auto greeting
+    window.onload = () => {
+      bubble("Bot", "Hi! 👋 How are you feeling today?");
+      input.focus();
+    };
+
+    // 🗃️ History Modal
+    historyBtn.addEventListener("click", async () => {
+      historyList.innerHTML = "<div class='muted'>Loading…</div>";
+      historyModal.classList.remove("hidden");
+
+      try {
+        const res = await fetch("/api/history");
+        const data = await res.json();
+        const items = (data.history || []).slice().reverse();
+        if (!items.length) {
+          historyList.innerHTML = "<div class='muted'>No history yet.</div>";
+          return;
+        }
+        historyList.innerHTML = items.map(h => {
+          const preds = (h.predictions || []).map(p => `${p.name} (${p.confidence}%)`).join(", ");
+          return `
+            <div class="hist-item">
+              <div class="when">${new Date(h.ts).toLocaleString()}</div>
+              <div class="inp"><strong>You:</strong> ${h.input}</div>
+              ${h.extracted?.length ? `<div class="sym"><strong>Symptoms:</strong> ${h.extracted.join(", ")}</div>` : ""}
+              ${preds ? `<div class="pred"><strong>Predicted:</strong> ${preds}</div>` : ""}
+            </div>
+          `;
+        }).join("");
+      } catch {
+        historyList.innerHTML = "<div class='muted'>Failed to load history.</div>";
+      }
+    });
+
+    closeHistory.addEventListener("click", () => {
+      historyModal.classList.add("hidden");
+    });
+
+    clearHistoryBtn.addEventListener("click", async () => {
+      if (!confirm("Clear your prediction history?")) return;
+      try {
+        await fetch("/api/history/clear", { method: "POST" });
+        historyList.innerHTML = "<div class='muted'>History cleared.</div>";
+      } catch {
+        alert("Failed to clear history.");
+      }
+    });
+  </script>
+</body>
+</html>

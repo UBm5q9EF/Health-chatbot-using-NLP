@@ -1,0 +1,87 @@
+# === Python Virtual Environment ===
+
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# === Flask + Python Backend Artifacts ===
+*.pkl
+*.pickle
+*.db
+*.sqlite
+*.log
+symptom_ner_model/
+symptom_ner_model.zip
+
+# === Environment & API Keys ===
+
+.flask_session/
+
+# === Model Training Files ===
+training_output/
+training_logs/
+*.jsonl
+*.spacy
+*.cfg
+
+# === Node.js & Frontend ===
+node_modules/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# === Build Artifacts ===
+build/
+dist/
+*.egg-info/
+
+# === IDE / Editor Settings ===
+.vscode/
+.idea/
+.spyproject/
+*.sublime-project
+*.sublime-workspace
+
+# === OS Generated Files ===
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# === Jupyter Notebook Cache ===
+.ipynb_checkpoints/
+
+# === Jupyter Notebooks (optional: ignore if not needed) ===
+# *.ipynb
+
+# === Colab Cache ===
+*.json
+
+# === Torch, Transformers, Checkpoints ===
+*.pt
+*.ckpt
+*.bin
+*.onnx
+*.tflite
+
+# === Trained spaCy model folder ===
+symptom_ner_model/
+symptom_ner_model.zip
+training_output/
+training_logs/
+
+# === Misc large or generated files ===
+*.spacy
+*.cfg
+*.pth
+*.pt
+*.onnx
+*.bin
+
+venv
+*venv
+
+venv/
+__pycache__/
+*.pyc
