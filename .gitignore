@@ -11,8 +11,7 @@ __pycache__/
 *.db
 *.sqlite
 *.log
-symptom_ner_model/
-symptom_ner_model.zip
+
 
 # === Environment & API Keys ===
 
